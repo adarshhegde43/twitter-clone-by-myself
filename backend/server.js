@@ -9,11 +9,11 @@ import userRoutes from "./routes/user.routes.js";
 import connectMongoDb from "./dB/connectMongoDb.js";
 
 dotenv.config() ; //allows us to access process.env...
-cloudinary.config({
+cloudinary.config({ //This "logs in" our  app to Cloudinary’s API.
     cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
     api_key : process.env.CLOUDINARY_API_KEY ,
     api_secret : process.env.CLOUDINARY_API_SECRET
-});
+}); //These keys authenticate our app with Cloudinary’s API!
 
 const app = express(); //Function which creates express app...
 const PORT = process.env.PORT || 5000 ;
