@@ -55,6 +55,14 @@ const userSchema = new mongoose.Schema({
             type : String ,
             default : ""
         },
+
+        likedPosts: [
+            {
+                type: [mongoose.Schema.Types.ObjectId],  // Define as an array of ObjectIds
+                ref: "Post",
+                default: [],
+            },
+        ],
     }, 
     {timestamps:true}
 ); //timestamps object is true , as we would like to know when this objext was created...

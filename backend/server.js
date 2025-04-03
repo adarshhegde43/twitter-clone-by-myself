@@ -5,6 +5,7 @@ import { v2 as cloudinary} from "cloudinary";
 
 import authRoutes from "./routes/auth.routes.js"; //Don't forget to add .js at the end , because we are using type:module...
 import userRoutes from "./routes/user.routes.js";
+import postRoutes from "./routes/post.routes.js";
 
 import connectMongoDb from "./dB/connectMongoDb.js";
 
@@ -18,12 +19,13 @@ cloudinary.config({ //This "logs in" our  app to Cloudinary’s API.
 const app = express(); //Function which creates express app...
 const PORT = process.env.PORT || 5000 ;
 
-app.use(express.json()); //parse the requested body 
+app.use(express.json()); //parse the JSON in the requested body
 app.use(express.urlencoded({extended : true})) ; //to parse form-data (urlencoded)...
 app.use(cookieParser()); //parse cookies...
 
 app.use("/api/auth" , authRoutes);
 app.use("/api/users" , userRoutes);
+app.use("/api/posts" , postRoutes);
 
 app.listen(PORT , (req,res) => {
     console.log(`You are listening to port ${PORT}`);
