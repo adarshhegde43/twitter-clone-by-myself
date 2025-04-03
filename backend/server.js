@@ -6,6 +6,7 @@ import { v2 as cloudinary} from "cloudinary";
 import authRoutes from "./routes/auth.routes.js"; //Don't forget to add .js at the end , because we are using type:module...
 import userRoutes from "./routes/user.routes.js";
 import postRoutes from "./routes/post.routes.js";
+import notificationRoutes from "./routes/notification.routes.js";
 
 import connectMongoDb from "./dB/connectMongoDb.js";
 
@@ -26,6 +27,7 @@ app.use(cookieParser()); //parse cookies...
 app.use("/api/auth" , authRoutes);
 app.use("/api/users" , userRoutes);
 app.use("/api/posts" , postRoutes);
+app.use("/api/notifications" , notificationRoutes);
 
 app.listen(PORT , (req,res) => {
     console.log(`You are listening to port ${PORT}`);
